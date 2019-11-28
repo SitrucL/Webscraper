@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LondisWatchList</title>
+    <script type="text/javascript" src="/js/lib/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="/css/Londis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
+        type="text/css">
+
+</head>
+
+<body>
+
+
+        <% /*
+        THINGS TO ADD:
+
+        improve design for expanded info section
+        background image
+        desktop reminders
+        timed exceution of the script
+        turn into chrome extension?
+        refactor app.js   
+
+        */ %>
+
+    <div id="shoppingListBody">
+
+        <h1> LONDIS ITEM WATCHLIST</h1>
+        <form action="/" method="POST">
+            <input type="text" name="addListItem" placeholder="ADD NEW ITEM">
+        </form>
+
+        <ul>
+            <% thingsToWatch.forEach(function(element, index){ %>
+            <li class="mainListItem">
+                <span class="listItemContainer">
+                    <span class="itemText">
+                        <form action="/<%=element._id%>?_method=PUT" method="POST">
+                            <input type="text" class="dynamicListItem" disabled name="item[name]"
+                                value="<%= element.name%>">
+                        </form>
+                    </span>
+                    <span class="iconBox">
+                        <i class="fas fa-tags"></i>
+                        <span class="AdditionalOptions cloaked">
+                            <i class="fas fa-pencil-alt"></i>
+                            <a href="/<%=element._id%>/delete"><i class="fas fa-trash"></i></a>
+                        </span>
+                    </span>
+                </span>
+
+                <% checkedList.forEach(function(saleItem){ %>
+                <% if(saleItem.originatedFrom == index){ %>
+                <ul class="fullInfo cloaked">
+                    <li>
+                        <span>
+                            <strong><em>NAME: </em></strong>
+                            <%=saleItem.name %>
+                        </span>
+
+                        <span>
+                            <strong><em>PRICE: </em></strong>
+                            <%=saleItem.price%>
+                        </span>
+                    </li>
+                </ul>
+                <%}; %>
+                <%}); %>
+
+
+            </li>
+
+            <%}); %>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="/js/ItemWatchList.js"></script>
+</body>
+
+</html>

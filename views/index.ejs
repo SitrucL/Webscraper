@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LondisWatchList</title>
+    <script type="text/javascript" src="/js/lib/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="/css/Londis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
+        type="text/css">
+
+</head>
+
+<body>
+
+
+
+
+    <div id="shoppingListBody">
+
+        <h1> LONDIS ITEM WATCHLIST</h1>
+        <form action="/" method="POST">
+            <input type="text" name="addListItem" placeholder="Add item to watchlist">
+        </form>
+
+        <ul>
+            <% thingsToWatch.forEach(function(element){ %>
+            <li>
+                <span class="itemText">
+                    <form action="/<%=element._id%>?_method=PUT" method="POST">
+                        <input type="text" class="dynamicListItem" name="item[name]" value="<%= element.name%>"> 
+                    </form>
+                </span>
+                <span class="iconBox">
+                    <i class="fas fa-dot-circle"></i>
+                    <span class="AdditionalOptions">
+                        <a href="/<%=element._id%>/edit"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="/<%=element._id%>/delete"><i class="fas fa-trash"></i></a>
+                    </span>
+                </span>
+            </li>
+            <ul>
+                <li class="fullInfo cloaked">
+                    item offer details
+                    <% checkedList.forEach(function(saleItem){ %>
+                
+                    <%= saleItem.name%>
+              
+            <%}); %>
+                </li>
+            </ul>
+            <%}); %>
+        </ul>
+
+        <h2>Checked list</h2>
+
+        <ul>
+            <% checkedList.forEach(function(saleItem){ %>
+                <div >
+                    <li><%= saleItem.name%> </li>
+                </div>
+            <%}); %>
+        </ul>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="/js/ItemWatchList.js"></script>
+</body>
+
+</html>

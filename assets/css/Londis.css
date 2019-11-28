@@ -1,0 +1,143 @@
+@font-face {
+    font-family: CrayonFont;
+    src: url(./Fonts/ColoredCrayons.ttf);
+  } 
+
+
+body {
+     font-size: 100%;
+     height: 100%;
+     margin: 0;
+     padding: 0;
+}
+
+ h1,h2{
+     color: white;
+     text-align: center;
+     font-family: "CrayonFont";
+}
+
+ #shoppingListBody{
+     width: 500px;
+     border: solid rgb(197, 109, 8) 5px;
+     display: block;
+     position: relative;
+     margin: auto;
+     margin-top: 100px;
+     margin-bottom: 100px;
+     background-color: rgb(87, 165, 23);
+   box-shadow: 5px 5px 4px rgb(71, 70, 70);
+}
+
+ input[type=text]{
+     display: inline-block;
+     width: 100%;
+     font-size: 18px;
+     background-color: rgb(233, 233, 227);
+     padding: 10px 15px 10px 20px;
+     border: rgb(197, 109, 8);
+     border-style: solid none;
+     border-width: 3px ;
+     box-sizing: border-box;
+     text-align: center;
+     height: 50px;
+}
+
+ input[type = "text"]:focus{
+     outline: none;
+}
+
+ input[type=text].dynamicListItem{
+     background-color: transparent;
+     border: none;
+     font-family: "CrayonFont";
+}
+
+ span.itemText{
+     margin-left: auto;
+}
+
+ span.listItemContainer{
+     height: 50px;
+     display: flex;
+     flex-direction: row;
+    /* justify-content: center;
+     */
+     align-content: center;
+    /* verticl alignment */
+}
+
+ li.mainListItem:nth-child(even){
+     background: rgb(231, 231, 231);
+}
+
+ li.mainListItem:nth-child(odd){
+     background:rgb(160, 216, 113);
+    }
+
+ ul{
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+}
+ .iconBox{
+     display: flex;
+     align-items: center;
+     margin-left: auto;
+}
+
+ .fas{
+     margin: 5px;
+}
+
+ span span.AdditionalOptions.cloaked{
+     opacity: 0;
+     transform: translate(-10px);
+     z-index: -1;
+}
+
+ span span.AdditionalOptions{
+     right: -59px;
+     position: absolute;
+     border-radius: 0 25% 25% 0;
+     display: inline-block;
+     opacity: 1;
+     background-color: rgb(197, 109, 8);
+       transition: all 0.25s ease-out;
+     line-height: 50px;
+     z-index: 0;
+}
+
+ span span.AdditionalOptions, span span.AdditionalOptions a {
+     display: inline;
+color: rgb(255, 255, 255);
+}
+
+
+ ul.cloaked {
+     display: none;
+}
+
+.fullInfo span {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    background: rgb(201, 201, 101);
+    /* justify-content: center; */
+}
+
+.fa-tags{
+    visibility: hidden;
+}
+
+
+input[type="text"].dynamicListItem:enabled{
+    color: rgb(197, 109, 8);
+    font-style: italic;
+    caret-color: rgb(197, 109, 8) ;
+}
+input[type="text"]:disabled{
+    color: black
+}
+
+
